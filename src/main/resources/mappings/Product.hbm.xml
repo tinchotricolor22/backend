@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping default-access="field" default-cascade="save-update">
+	<class name="com.mm.model.Product" table="am_product">
+		<id column="id" type="int" name="id">
+			<generator class="native" />
+		</id>
+		<property column="code" type="string" name="code" not-null="true" unique="true"/>
+		<property column="description" type="string" name="description"/>
+		<one-to-one name="type" class="com.mm.model.ProductType" cascade="all" lazy="false"></one-to-one>
+		<one-to-one name="trademark" class="com.mm.model.TradeMark" cascade="all" lazy="false"></one-to-one>
+	</class>
+</hibernate-mapping>
